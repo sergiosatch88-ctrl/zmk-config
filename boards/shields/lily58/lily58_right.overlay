@@ -19,10 +19,12 @@
         , <&pro_micro 18 GPIO_ACTIVE_HIGH>
         , <&pro_micro 19 GPIO_ACTIVE_HIGH>
         ;
-&right_encoder {
-    status = "okay";
-    a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };
 
+/* AQUI EMPIEZA LA SECCION DEL ENCODER FUERA DEL BLOQUE KSCAN0 */
+&right_encoder {
+    status = "okay";
+    /* Usamos &pro_micro porque &nice_nano no siempre funciona en todos los repositorios */
+    a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };

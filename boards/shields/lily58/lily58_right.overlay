@@ -15,16 +15,9 @@
         ;
 };
 
- / {
-    encoders {
-        compatible = "zmk,encoders";
-
-        encoder_right: encoder_right {
-            label = "ENCODER_RIGHT";
-            gpios = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-
-            steps = <4>;
-        };
-    };
+&right_encoder {
+    status = "okay";
+    a-gpios = <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    b-gpios = <&pro_micro 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 };
+

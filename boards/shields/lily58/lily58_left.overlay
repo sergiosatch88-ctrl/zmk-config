@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020 Pete Johanson
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include "lily58.dtsi"
 
 &kscan0 {
@@ -17,10 +11,15 @@
         ;
 };
 
-&left_encoder {
-    status = "okay";
-    a-gpios = <&gpio 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-};
+ / {
+    encoders {
+        compatible = "zmk,encoders";
 
+        encoder_left: encoder_left {
+            label = "ENCODER_LEFT";
+            gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 21 GPIO_ACTIVE_HIGH>;
+            steps = <4>;
+        };
+    };
 };
